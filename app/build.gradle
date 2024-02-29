@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+    id 'com.huawei.agconnect'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "dcsampleaccountapp.huawei.dmap"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('HmsDemo.jks')
+            keyAlias 'hmsdemo'
+            keyPassword '123456'
+            storePassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        config {
+            storeFile file('C:/Users/win10/AndroidStudioProjects/MUSampleAccountApp_0012/app/HmsDemo.jks')
+            storePassword '123456'
+            keyPassword '132456'
+            keyAlias 'hmsdemo'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.huawei.hms:hwid:6.1.0.300'
+    implementation 'com.huawei.hms:location:5.1.0.301'
+    implementation 'com.huawei.hms:location:5.1.0.303'
+    implementation 'com.huawei.hms:maps:6.0.0.301'
+    implementation 'com.huawei.hms:maps:5.0.5.301'
+}
